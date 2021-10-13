@@ -13,4 +13,4 @@ containerRegistryUrl:
 # The name of the image pull secret to be used for the repository
 imagePullSecretName: 
 
-webhookImage: lawrencegripper/imagenamemutatingcontroller:12
+webhookImage: mgkaiser/mutatingcontroller:0.1.0
