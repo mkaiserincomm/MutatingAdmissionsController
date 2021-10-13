@@ -5,6 +5,7 @@ build:
 
 docker:
 	docker build --no-cache -t mutatingcontroller . 
+	# push to here: mgkaiser/mutatingcontroller:0.1.0
 
 docker-test:
 	docker run -d -p 3000:3000 mutatingcontroller
@@ -14,6 +15,6 @@ docker-test:
 	docker ps | grep mutatingcontroller | awk '{print $$1}' | xargs docker kill
 
 helm-package:
-	docker run -v ${PWD}:/src --entrypoint sh lachlanevenson/k8s-helm:v2.10.0 -c "helm init --client-only && helm package /src/chart/registry-rewriter -d /src"
+	helm package ${PWD}/chart/registry-rewriter -d ${PWD}
 
 .PHONY: build
